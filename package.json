@@ -1,0 +1,35 @@
+{
+  "name": "CNode-React",
+  "version": "1.0.0",
+  "description": "Using React Complete the CNode's Community",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngd-b/CNode-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngd-b/CNode-React/issues"
+  },
+  "homepage": "https://github.com/ngd-b/CNode-React#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  }
+}
