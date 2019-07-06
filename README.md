@@ -10,3 +10,6 @@ Using React Complete the CNode's Community
 - [x] babel
 
 ## Day 2 
+
+- [x] axios 
+
