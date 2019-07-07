@@ -7,5 +7,15 @@
                 "development":true
             }
         ]
+    ],
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName":"antd",
+                "libraryDirectory":"es",
+                "style":"css"
+            }
+        ]
     ]
 }

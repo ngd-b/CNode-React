@@ -1,0 +1,33 @@
+.header .brand{
+    display: block;
+}
+.header .brand > a{
+    max-width: 100%;
+}
+
+.list-unstyled{
+    list-style: none;
+}
+.list-unstyled > li{
+    float: left;
+    line-height: 20px;
+}
+.list-unstyled > li a{
+    float:none;
+    color:#ccc;
+    text-decoration: none;
+    padding:10px 15px;
+}
+.list-unstyled > li a:hover{
+    color:#fff;
+}
+
+.main{
+    margin-top: 20px;
+}
+.main .content{
+    background: #fff;
+}
+.main .article .ant-list-items > li{
+    padding:20px;
+}

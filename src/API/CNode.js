@@ -1,7 +1,7 @@
 /**
  * the CNode's pbulic APi
  */
-import {ajaxRequset as ajax} from "./AxiosRequest";
+import {ajaxRequset as ajax} from "@api/AxiosRequest";
 
 // get the topic page data 
 class CNode{
