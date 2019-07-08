@@ -40,5 +40,6 @@ export const ajaxRequset = (api,option)=>{
     return instance({
         url:api,
         method:option.type,
+        params:option.params
     });
 }

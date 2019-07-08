@@ -11,8 +11,17 @@ class CNode{
             email:"bobolity@163.com"
         }
     }
-    getTopics(){
-       return ajax('/topics',{type:"get"})
+    getTopics(params){
+        let {page,tab,limit} = params;
+        return ajax('/topics',{
+            type:"get",
+            params:{
+                    page:page||1,
+                    tab:tab||"",
+                    limit:limit||20,
+                    mdrender:true
+            }
+        });
     }
     // the article's detail 
     getTopicDetail(id){

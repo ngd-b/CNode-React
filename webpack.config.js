@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 
 module.exports = {
@@ -10,6 +11,10 @@ module.exports = {
     output:{
         filename:"main.js",
         path:path.resolve(__dirname,"dist")
+    },
+    devtool:"inline-source-map",
+    devServer:{
+        contentBase:"./dist"
     },
     module:{
         rules:[
@@ -34,6 +39,7 @@ module.exports = {
         }
     },
     plugins:[
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             "process.env":{
                 NODE_ENV:JSON.stringify("production")
@@ -41,7 +47,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template:path.join(__dirname+"/public/index.html")
-        })
+        }),
     ],
     optimization:{
         minimizer:[new UglifyJsPlugin()]

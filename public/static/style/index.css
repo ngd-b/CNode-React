@@ -1,10 +1,21 @@
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
 .header .brand{
     display: block;
+    height: 44px;
+    max-width: 150px;
+    line-height: 44px;
 }
-.header .brand > a{
+.header .brand > img{
     max-width: 100%;
+    vertical-align: initial;
 }
-
+main{
+    margin-top: 65px;
+}
 .list-unstyled{
     list-style: none;
 }
@@ -21,13 +32,35 @@
 .list-unstyled > li a:hover{
     color:#fff;
 }
-
+/** 列表默认样式更改 **/
 .main{
     margin-top: 20px;
 }
 .main .content{
     background: #fff;
 }
-.main .article .ant-list-items > li{
+.main .article .ant-list-items > .item{
+    padding:10px;
+}
+.main .article .ant-list-items > .item > div:first-child{
+    flex: 0;
+}
+.main .article .ant-list-items > .item > div:last-child{
+    flex: 1;
+    text-align: right;
+}
+.main .article .ant-list-items > .item .count{
+    width: 80px;
+    text-align: center;
+}
+
+.main .sider .login-box{
     padding:20px;
+    text-align: center;
+    background: #fff;
+}
+/** 分页默认样式更改 **/
+.main .article .ant-pagination{
+    text-align: left;
+    margin: 10px;
 }
