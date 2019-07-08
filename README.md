@@ -16,5 +16,5 @@ Using React Complete the CNode's Community
 ## Day 3
 - [x] jest . but I don't use it 
 
-- [x] Ant Desing
+- [x] Ant Design
 
