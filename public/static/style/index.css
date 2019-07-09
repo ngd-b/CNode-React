@@ -1,66 +1,17 @@
-header{
-    position: fixed;
-    width: 100%;
-    z-index: 3;
+
+a,ul,li,div,p,span{
+    margin:0;
+    padding:0;
 }
-.header .brand{
-    display: block;
-    height: 44px;
-    max-width: 150px;
-    line-height: 44px;
+a{
+    text-decoration: none;
+    color: inherit;
 }
-.header .brand > img{
-    max-width: 100%;
-    vertical-align: initial;
-}
-main{
-    margin-top: 65px;
-}
-.list-unstyled{
+ul{
     list-style: none;
 }
-.list-unstyled > li{
-    float: left;
-    line-height: 20px;
-}
-.list-unstyled > li a{
-    float:none;
-    color:#ccc;
-    text-decoration: none;
-    padding:10px 15px;
-}
-.list-unstyled > li a:hover{
-    color:#fff;
-}
-/** 列表默认样式更改 **/
-.main{
-    margin-top: 20px;
-}
-.main .content{
-    background: #fff;
-}
-.main .article .ant-list-items > .item{
-    padding:10px;
-}
-.main .article .ant-list-items > .item > div:first-child{
-    flex: 0;
-}
-.main .article .ant-list-items > .item > div:last-child{
-    flex: 1;
-    text-align: right;
-}
-.main .article .ant-list-items > .item .count{
-    width: 80px;
-    text-align: center;
-}
 
-.main .sider .login-box{
-    padding:20px;
-    text-align: center;
-    background: #fff;
-}
-/** 分页默认样式更改 **/
-.main .article .ant-pagination{
-    text-align: left;
-    margin: 10px;
+body,
+.ant-layout{
+    background: #e1e1e1;
 }

@@ -1,0 +1,15 @@
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+.header .brand{
+    display: block;
+    height: 44px;
+    max-width: 150px;
+    line-height: 44px;
+}
+.header .brand > img{
+    max-width: 100%;
+    vertical-align: initial;
+}

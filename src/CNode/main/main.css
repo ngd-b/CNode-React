@@ -1,0 +1,71 @@
+main{
+    margin-top: 65px;
+}
+main .topic-tab{
+    display: flex;
+    height: 44px;
+    padding-left: 15px;
+    align-items: center;
+    background: #f6f6f6;
+}
+main .topic-tab li{
+    color:#80bd01;
+    border-radius: 3px;
+    padding:3px 5px;
+    margin:0 10px;
+}
+main .topic-tab li.current-tab{
+    color:#fff;
+    background: #80bd01;
+    border-radius: 3px;
+    padding:3px 5px;
+}
+main .topic-tab li a:hover,
+main .topic-tab li a:focus{
+    color:#005580;
+}
+.list-unstyled > li{
+    float: left;
+    line-height: 20px;
+}
+.list-unstyled > li a{
+    float:none;
+    color:#ccc;
+    text-decoration: none;
+    padding:10px 15px;
+}
+.list-unstyled > li a:hover{
+    color:#fff;
+}
+/** 列表默认样式更改 **/
+.main{
+    margin-top: 20px;
+}
+.main .content{
+    background: #fff;
+}
+.main .article .ant-list-items > .item{
+    padding:10px;
+}
+.main .article .ant-list-items > .item > div:first-child{
+    flex: 0;
+}
+.main .article .ant-list-items > .item > div:last-child{
+    flex: 1;
+    text-align: right;
+}
+.main .article .ant-list-items > .item .count{
+    width: 80px;
+    text-align: center;
+}
+
+.main .sider .login-box{
+    padding:20px;
+    text-align: center;
+    background: #fff;
+}
+/** 分页默认样式更改 **/
+.main .article .ant-pagination{
+    text-align: left;
+    margin: 10px;
+}

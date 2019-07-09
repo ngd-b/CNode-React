@@ -35,7 +35,8 @@ module.exports = {
             '@api':path.join(__dirname,"./src/API"),
             '@public':path.join(__dirname,"./public"),
             '@static':path.join(__dirname,"./public/static/"),
-            '@css':path.join(__dirname,"./public/static/style")
+            '@css':path.join(__dirname,"./public/static/style"),
+            "@CNode":path.join(__dirname,"./src/CNode")
         }
     },
     plugins:[

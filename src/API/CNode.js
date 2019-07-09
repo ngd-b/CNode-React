@@ -24,8 +24,14 @@ class CNode{
         });
     }
     // the article's detail 
-    getTopicDetail(id){
-        return ajax('/top/id',{type:"get"})
+    getTopicDetail(id,params){
+        return ajax('/top/id',{
+            type:"get",
+            params:{
+                mdrender:true,
+                accesstoken:""
+            }
+        })
     }
 } 
 
