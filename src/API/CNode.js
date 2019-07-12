@@ -25,13 +25,13 @@ class CNode{
     }
     // the article's detail 
     getTopicDetail(id,params){
-        return ajax('/top/id',{
+        return ajax('/topic/'+id,{
             type:"get",
             params:{
-                mdrender:true,
+                mdrender:false,
                 accesstoken:""
             }
-        })
+        });
     }
 } 
 

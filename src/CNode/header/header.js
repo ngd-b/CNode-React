@@ -2,9 +2,12 @@
 import React from "react";
 import {Row,Col,Input,Icon} from "antd";
 
+import {withRouter} from "react-router-dom";
+
+import "@css/index.css";
 import "./header.css";
 // head
-export default class AppHead extends React.Component{
+class AppHead extends React.Component{
     constructor(props){
         super(props);
         const tags = [
@@ -44,7 +47,7 @@ export default class AppHead extends React.Component{
         const {tags} = this.state;
         return (<Row type="flex" className="header" justify="space-around" align="middle">
             <Col span={3}>
-                <a className="brand">
+                <a className="brand" href="/">
                     <img src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" />
                 </a>
             </Col>
@@ -61,3 +64,5 @@ export default class AppHead extends React.Component{
         </Row>);
     }
 }
+
+export default  withRouter(AppHead);

@@ -1,10 +1,11 @@
 import React from "react";
-import {Spin,Result,Button,List,Avatar,Tag} from "antd";
-import {BrowserRouter as Router,Route,Link} from "react-router-dom";
+import {Spin,Result,Button,List,Avatar} from "antd";
+import {Link,withRouter} from "react-router-dom";
 
 import requestAPI from "@api/CNode";
 
-const typeMap = new Map([["all","全部"],["good","精华"],["ask","问答"],["share","分享"],["job","招聘"]]);
+import {ArticleTag,typeMap,getTime} from "./common";
+
 /**
  * 主体文章内容的获取，格式、样式
  */
@@ -43,24 +44,15 @@ class ContentItem extends React.Component{
         }).catch(function(xhr){
             _this.setState({
                 loading:false,
-                xhr
+                error:xhr.status+"------------"+xhr.message
             });
         });
     }
     componentDidMount(){
         this.getTopicData();
     }
-    getTime(time){
-        let diffTime = new Date().getTime() - new Date(time).getTime();
-        let replay_msg = "";
-        if(diffTime/(3600*1000*24) > 1){
-            replay_msg = Math.floor(diffTime/(3600*1000*24))+"天前";
-        }else if(diffTime/(3600*1000) > 1){
-            replay_msg = Math.floor(diffTime/(3600*1000))+"小时前";
-        }else{
-            replay_msg = Math.floor(diffTime/(60*1000))+"分钟前";
-        }
-        return replay_msg;
+    refreshDat(){
+        this.getTopicData();
     }
     render(){
         const {error,loading,data} = this.state;
@@ -70,7 +62,7 @@ class ContentItem extends React.Component{
                     status="warning"
                     title="the bad request"
                     extra={
-                        <Button type="primary">
+                        <Button type="primary" onClick={()=>refreshDat()}>
                             refresh
                         </Button>
                     }     
@@ -111,10 +103,10 @@ class ContentItem extends React.Component{
                             </div>
                             <div>
                                 <ArticleTag tab={item.tab} good={item.good} top={item.top} />
-                                <a >{item.title}</a>
+                                <Link to={{pathname:"/topic/"+item.id}}>{item.title}</Link>
                             </div>
                             <div>
-                                <span>{this.getTime(item.last_reply_at)}</span>
+                                <span>{getTime(item.last_reply_at)}</span>
                             </div> 
                         </List.Item>
                     )
@@ -123,21 +115,6 @@ class ContentItem extends React.Component{
         }
     }
 }
-/**
- * 文章类型处理
- * @param {} props 
- */
-function ArticleTag(props){
-    if(props.top){
-        return <Tag color="#80bd01">置顶</Tag>;
-    }else if(props.good){
-        return <Tag color="#80bd01">精华</Tag>
-    }else{
-        return <Tag color="#e5e5e5" style={{color:"#999"}}>{typeMap.get(props.tab)}</Tag>;
-    }
-    
-}
-
 class TopicList extends React.Component{
     constructor(props){
         super(props);
@@ -168,31 +145,4 @@ class TopicList extends React.Component{
     }
 }
 
-export default function ContentPage(){
-    return (<Router>
-            <Route component={TopicList}></Route>
-        </Router>);
-}
-
-// )
-// )}
-// <Tabs
-//                 defaultActiveKey="all"
-//                 onChange={this.handleTabChange}
-//             >  
-//                 <TabPane tab="全部" key="all">
-//                     <ContentPage tab="" />
-//                 </TabPane>
-//                 <TabPane tab="问答" key="ask">
-//                     <ContentPage tab="ask" />
-//                 </TabPane>
-//                 <TabPane tab="分享" key="share">
-//                     <ContentPage tab="share" />
-//                 </TabPane>
-//                 <TabPane tab="精华" key="good">
-//                     <ContentPage tab="good" />
-//                 </TabPane>
-//                 <TabPane tab="招聘" key="job">
-//                     <ContentPage tab="job" />
-//                 </TabPane>
-//             </Tabs>
+export default withRouter(TopicList);

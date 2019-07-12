@@ -1,3 +1,8 @@
-.login-box p{
+.main .sider .login-box p{
     margin-bottom: 30px;
+}
+.main .sider .login-box{
+    padding:20px;
+    text-align: center;
+    background: #fff;
 }

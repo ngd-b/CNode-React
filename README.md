@@ -32,3 +32,11 @@ Using React Complete the CNode's Community
 * `Router、Route、Link` .
 * `state、props` lifecycle `componentWillReceiveProps` .
 
+___________________________________________
+> It took three days in the middle.
+
+## Day 6 
+
+> It's takes a lot of time to use `react-router-dom`,and checked a lot of the doc  ... ,
+* complete the route jump to the details content
+* complete basic markdown layout
