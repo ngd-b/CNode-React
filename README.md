@@ -5,18 +5,18 @@ Using React Complete the CNode's Community
 
     init project 
 
-- [x] webpack
-- [x] react
-- [x] babel
+- [x] `webpack`
+- [x] `react`
+- [x] `babel`
 
 ## Day 2 
 
 - [x] axios 
 
 ## Day 3
-- [x] jest . but I don't use it 
+- [x] `jest` . but I don't use it 
 
-- [x] Ant Design
+- [x] `Ant Design`
 
 
 ## Day 4
@@ -26,7 +26,7 @@ Using React Complete the CNode's Community
 
 ## Day 5
 
-- [x] react-router . complete  show the detail of article
+- [x] `react-router` . complete  show the detail of article
 
 * divide diff component into diff dir
 * `Router、Route、Link` .
@@ -38,5 +38,9 @@ ___________________________________________
 ## Day 6 
 
 > It's takes a lot of time to use `react-router-dom`,and checked a lot of the doc  ... ,
+
+- [x] `react-router-dom` .
+- [x] `react-markdown`
+ 
 * complete the route jump to the details content
 * complete basic markdown layout
