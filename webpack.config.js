@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const proxy = require("http-proxy-middleware");
 
 
 module.exports = {
@@ -14,7 +15,14 @@ module.exports = {
     },
     devtool:"inline-source-map",
     devServer:{
-        contentBase:"./dist"
+        contentBase:path.join(__dirname,"dist"),
+        port:8080,
+        compress:true,  // 压缩一切服务
+        proxy:[{
+            context:['/topic'],
+            target:"http://localhost:8080",
+            pathRewrite:{"^/topic":""},
+        }]
     },
     module:{
         rules:[

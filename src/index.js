@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Layout} from "antd";
-import {BrowserRouter as Router,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Route,Link,Redirect} from "react-router-dom";
 
 import "@css/index.css";
 import "@CNode/header/header.css";

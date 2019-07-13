@@ -18,7 +18,7 @@ class ContentItem extends React.Component{
             data:[],
             params:{
                 page:1,
-                tab:"",
+                tab:props.tab||"",
                 limit:20
             },
         };
@@ -34,6 +34,9 @@ class ContentItem extends React.Component{
             this.getTopicData();
         }
     }
+    /**
+     * 获取文章列表数据
+     */
     getTopicData(){
         let _this = this;
         requestAPI.getTopics(_this.state.params).then(function(res){
@@ -118,9 +121,11 @@ class ContentItem extends React.Component{
 class TopicList extends React.Component{
     constructor(props){
         super(props);
-        // let params = new URLSearchParams(this.props.location.search);
+        
+        let params = new URLSearchParams(this.props.location.search);
+    
         this.state = {
-            currentTab:"all",
+            currentTab:params.get("tab")||"all",
         };
     }
     handleTabChange(key){

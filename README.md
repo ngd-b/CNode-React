@@ -44,3 +44,9 @@ ___________________________________________
  
 * complete the route jump to the details content
 * complete basic markdown layout
+
+## Day 7
+
+> solved the problem that manual refresh address page can not be opened with . using `react-router-dom`
+
+the address of the article to solve this problem [https://blog.csdn.net/heroboyluck/article/details/95812062](https://blog.csdn.net/heroboyluck/article/details/95812062)

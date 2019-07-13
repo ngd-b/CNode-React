@@ -46,6 +46,9 @@ class TopicDetail extends React.Component{
     componentDidMount(){
         this.getDetailContent();
     }
+    refreshDat(){
+        this.getDetailContent();
+    }
     render(){
         let {error,loading,data} = this.state;
         
@@ -54,7 +57,7 @@ class TopicDetail extends React.Component{
                     status="warning"
                     title="the bad request"
                     extra={
-                        <Button type="primary">
+                        <Button type="primary" onClick={()=>refreshDat()}>
                             refresh
                         </Button>
                     }     
