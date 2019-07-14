@@ -59,7 +59,7 @@ class ContentItem extends React.Component{
     }
     render(){
         const {error,loading,data} = this.state;
-        let {page,limit} = this.state.params
+        let {page,limit} = this.state.params;
         if(error){
             return (<Result 
                     status="warning"

@@ -1,15 +1,20 @@
 import React from "react";
 import {Button,Icon} from "antd";
+import {withRouter} from "react-router-dom";
 
 import "./sider.css";
 
-export default class SiderPage extends React.Component{
+class SiderPage extends React.Component{
     constructor(props){
         super(props);
-        this.state={}
+        this.state={};
     }
     loginFromGithub(){
 
+    }
+    componentWillReceiveProps(nextProps){
+        let params = new URLSearchParams(nextProps.location.search);
+        console.log(nextProps);
     }
     render(){
         return (<div className="login-box">
@@ -18,3 +23,5 @@ export default class SiderPage extends React.Component{
             </div>);
     }
 }
+
+export default withRouter(SiderPage);

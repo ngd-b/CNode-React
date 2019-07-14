@@ -11,7 +11,6 @@ class TopicDetail extends React.Component{
     constructor(props){
         super(props);
         // let params = new URLSearchParams(this.props.location.search);
-        console.log(this.props.match.params.id);
         let id = this.props.match.params.id;
         this.state = {
             loading:true,

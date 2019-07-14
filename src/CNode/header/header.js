@@ -51,8 +51,8 @@ class AppHead extends React.Component{
                     <img src="https://static2.cnodejs.org/public/images/cnodejs_light.svg" />
                 </a>
             </Col>
-            <Col span={6}>
-                <Input placeholder="input search content" prefix={<Icon type="search" style={{color:'rgba(0,0,0,.3)'}}/>}/>
+            <Col span={6} className="searchInput">
+                <Input placeholder="input search content" prefix={<Icon type="search" style={{color:'rgba(0,0,0,.3)',background:'#e1e1e1'}}/>}/>
             </Col>
             <Col offset={2} span={10}>
                 <ul className="list-unstyled">{tags.map(item=>(
@@ -65,4 +65,4 @@ class AppHead extends React.Component{
     }
 }
 
-export default  withRouter(AppHead);
+export default  AppHead;
