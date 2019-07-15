@@ -50,3 +50,13 @@ ___________________________________________
 > solved the problem that manual refresh address page can not be opened with . using `react-router-dom`
 
 the address of the article to solve this problem [https://blog.csdn.net/heroboyluck/article/details/95812062](https://blog.csdn.net/heroboyluck/article/details/95812062)
+
+
+## Day 8 
+
+- [x] `react-redux`
+- [x] `redux`
+- [x] `prop-types`
+
+> After I read some information about `react-redux` . I felt that i didn't need to use it . and I didn't fully understand it
+

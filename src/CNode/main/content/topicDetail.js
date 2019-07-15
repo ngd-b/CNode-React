@@ -20,7 +20,8 @@ class TopicDetail extends React.Component{
                 mdrender:true,
                 accesstoken:""
             },
-            id:id
+            id:id,
+            authorName:props.authorName
         };
     }
     getDetailContent(){
@@ -33,8 +34,10 @@ class TopicDetail extends React.Component{
             }
             _this.setState({
                 loading:false,
-                data:data
+                data:data,
+                authorName:data.author.loginname
             });
+            // _this.props.getArticleAuthorName(data.author.loginname);
         }).catch(function(xhr){
             _this.setState({
                 loading:false,

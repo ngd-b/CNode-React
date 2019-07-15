@@ -13,8 +13,8 @@ class SiderPage extends React.Component{
 
     }
     componentWillReceiveProps(nextProps){
-        let params = new URLSearchParams(nextProps.location.search);
-        console.log(nextProps);
+
+        console.log(nextProps.authorName);
     }
     render(){
         return (<div className="login-box">

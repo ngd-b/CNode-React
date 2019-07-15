@@ -1,7 +1,7 @@
 import React from "react";
 import {Row,Col,Affix} from "antd";
 
-import {Route,withRouter,Redirect} from "react-router-dom";
+import {Route,withRouter,Redirect,Switch} from "react-router-dom";
 
 
 import TopicList from "./content/topicList";
@@ -16,12 +16,21 @@ class TopicPage extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articleId:''
+            articleId:'',
+            authorName:"",
+            authorId:"",
+            getArticleAuthorName:this.getArticleAuthorName
         };
     }
     componentWillUpdate(prevProps){
         // .....
-        console.log(this.props);
+        // console.log(this.props);
+    }
+    // 获取点击文章详情的作者名称
+    getArticleAuthorName({name=""}){
+        this.setState({
+            authorName:name
+        });
     }
     getDetailAuthor(nextState,replace){
         // 钩子函数没执行...
@@ -34,11 +43,14 @@ class TopicPage extends React.Component{
         return (<Row type="flex" className="main" justify="center">
                     <Col span={14} className="content">
                         <Route exact path="/" component={TopicList} />
-                        <Route exact path="/topic/:id" component={TopicDetail} onEnter={(nextState,replace)=>this.getDetailAuthor(nextState,replace)}/>
+                        <Route exact path="/topic/:id" render={routeProps=>(<TopicDetail authorName={this.state.authorName} {...routeProps} />)} onEnter={(nextState,replace)=>this.getDetailAuthor(nextState,replace)}/>
                     </Col>
                     <Col offset={1} span={5} className="sider">
                         <Affix offsetTop={84}>
-                            <SiderPage id={this.state.articleId} />
+                            <Switch>
+                                <Route exact path="/" component={SiderPage} />
+                                <Route exact path="/topic/:id" render={routeProps=>(<SiderPage authorName={this.state.authorName}  {...routeProps} />)}/>
+                            </Switch>
                         </Affix>
                     </Col>
                 </Row>);

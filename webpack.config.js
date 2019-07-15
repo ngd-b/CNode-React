@@ -44,7 +44,8 @@ module.exports = {
             '@public':path.join(__dirname,"./public"),
             '@static':path.join(__dirname,"./public/static/"),
             '@css':path.join(__dirname,"./public/static/style"),
-            "@CNode":path.join(__dirname,"./src/CNode")
+            "@CNode":path.join(__dirname,"./src/CNode"),
+            "@Redux":path.join(__dirname,"./src/reducers")
         }
     },
     plugins:[
