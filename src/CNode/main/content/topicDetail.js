@@ -2,6 +2,7 @@ import React from "react";
 import {Row,Col,Spin,Result,Button,Tag} from "antd";
 import {Link,withRouter} from "react-router-dom";
 import ReactMarkdown  from "react-markdown";
+import {AuthorContext} from "@Context/authorContext";
 
 import requestAPI from "@api/CNode";
 
@@ -21,7 +22,6 @@ class TopicDetail extends React.Component{
                 accesstoken:""
             },
             id:id,
-            authorName:props.authorName
         };
     }
     getDetailContent(){
@@ -35,7 +35,6 @@ class TopicDetail extends React.Component{
             _this.setState({
                 loading:false,
                 data:data,
-                authorName:data.author.loginname
             });
             // _this.props.getArticleAuthorName(data.author.loginname);
         }).catch(function(xhr){
@@ -53,7 +52,6 @@ class TopicDetail extends React.Component{
     }
     render(){
         let {error,loading,data} = this.state;
-        
         if(error){
             return (<Result 
                     status="warning"

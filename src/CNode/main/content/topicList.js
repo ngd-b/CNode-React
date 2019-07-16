@@ -57,6 +57,10 @@ class ContentItem extends React.Component{
     refreshDat(){
         this.getTopicData();
     }
+    handleClick(name){
+        this.props.callback(name);
+        // console.log(name,this.props);
+    }
     render(){
         const {error,loading,data} = this.state;
         let {page,limit} = this.state.params;
@@ -106,7 +110,7 @@ class ContentItem extends React.Component{
                             </div>
                             <div>
                                 <ArticleTag tab={item.tab} good={item.good} top={item.top} />
-                                <Link to={{pathname:"/topic/"+item.id}}>{item.title}</Link>
+                                <Link to={{pathname:"/topic/"+item.id}} onClick={()=>this.handleClick(item.author.loginname)}>{item.title}</Link>
                             </div>
                             <div>
                                 <span>{getTime(item.last_reply_at)}</span>
@@ -145,7 +149,7 @@ class TopicList extends React.Component{
                         </li>
                     ))}
                     </ul>
-                    <ContentItem tab={this.state.currentTab} />
+                    <ContentItem tab={this.state.currentTab} callback={this.props.callback} />
                 </div>);
     }
 }

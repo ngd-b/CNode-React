@@ -33,6 +33,13 @@ class CNode{
             }
         });
     }
+    // the author's detial info  of article
+    getAuthorDetail(name,params){
+        return ajax('/user/'+name,{
+            type:"get",
+            params:{}
+        });
+    } 
 } 
 
 export default new CNode();

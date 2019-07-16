@@ -60,3 +60,6 @@ the address of the article to solve this problem [https://blog.csdn.net/heroboyl
 
 > After I read some information about `react-redux` . I felt that i didn't need to use it . and I didn't fully understand it
 
+## Day 9 
+
+&emsp;&emsp; In the end . I still returned to the origin . I didn't solve the problem using `context` .
