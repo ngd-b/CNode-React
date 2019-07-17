@@ -9,6 +9,21 @@
 .main .sider .info-box{
     background: #fff;
     border-radius: 3px;
+    margin-bottom: 15px;
+}
+.main .sider .info-box:nth-of-type(2) .ant-list .ant-list-header{
+    padding:0px;
+}
+.main .sider .info-box:nth-of-type(2) .ant-list .ant-spin-container{
+    padding:10px 0 10px 10px;
+}
+.main .sider .info-box:nth-of-type(2) .ant-list .ant-spin-container .ant-list-item{
+    padding-bottom:0px;
+}
+.main .sider .info-box:nth-of-type(2) .ant-list .ant-spin-container .ant-list-item a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .main .sider .info-box .title{
     padding: 10px;

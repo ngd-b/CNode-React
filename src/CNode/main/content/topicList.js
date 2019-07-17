@@ -57,8 +57,12 @@ class ContentItem extends React.Component{
     refreshDat(){
         this.getTopicData();
     }
+    /**
+     * Deprecated 在详情文章加载完成后调用;查看topicDetail
+     * @param {点击的文章作者名称} name 
+     */
     handleClick(name){
-        this.props.callback(name);
+        // this.props.callback(name);
         // console.log(name,this.props);
     }
     render(){

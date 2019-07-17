@@ -12,7 +12,7 @@ class TopicDetail extends React.Component{
     constructor(props){
         super(props);
         // let params = new URLSearchParams(this.props.location.search);
-        let id = this.props.match.params.id;
+        // this.props.match.params.id;
         this.state = {
             loading:true,
             data:{},
@@ -20,32 +20,46 @@ class TopicDetail extends React.Component{
             params:{
                 mdrender:true,
                 accesstoken:""
-            },
-            id:id,
+            }
         };
+        this.props.articleId = this.props.match.params.id;
     }
+
     getDetailContent(){
         let _this = this;
-        requestAPI.getTopicDetail(_this.state.id,_this.state.params).then(function(res){
-            let data = {};
-            if(res.status === 200){
-                // 明明在全局做了配transformResponse置，怎么没有做处理，而第一个请求是处理过得
-                data = res.data;
-            }
-            _this.setState({
-                loading:false,
-                data:data,
+        requestAPI.getTopicDetail(_this.props.articleId,_this.state.params).then(
+            res=>{
+                let data = {};
+                if(res.status === 200){
+                    // 明明在全局做了配transformResponse置，怎么没有做处理，而第一个请求是处理过得
+                    data = res.data;
+                    _this.props.callback(data.author.loginname);
+                }
+                _this.setState({ 
+                    loading:false,
+                    data:data,
+                });
+                // _this.props.getArticleAuthorName(data.author.loginname);
+            },
+            xhr=>{
+                _this.setState({
+                    loading:false,
+                    error:xhr.status+"------------"+xhr.message
+                });
             });
-            // _this.props.getArticleAuthorName(data.author.loginname);
-        }).catch(function(xhr){
-            _this.setState({
-                loading:false,
-                error:xhr.status+"------------"+xhr.message
-            });
-        });
     }
     componentDidMount(){
         this.getDetailContent();
+    }
+    componentWillReceiveProps(nextProps){
+        // let id = nextProps.match.params.id;
+        // this.props.articleId = id;
+        // this.getDetailContent();
+        // if(this.props.match.params.id !== id){
+        //     this.getDetailContent();
+        // }
+        
+        // console.log(nextProps);
     }
     refreshDat(){
         this.getDetailContent();
