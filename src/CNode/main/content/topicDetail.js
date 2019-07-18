@@ -25,15 +25,17 @@ class TopicDetail extends React.Component{
         this.props.articleId = this.props.match.params.id;
     }
 
-    getDetailContent(){
+    getDetailContent(id,bool = true){
         let _this = this;
-        requestAPI.getTopicDetail(_this.props.articleId,_this.state.params).then(
+        requestAPI.getTopicDetail(id,_this.state.params).then(
             res=>{
                 let data = {};
                 if(res.status === 200){
                     // 明明在全局做了配transformResponse置，怎么没有做处理，而第一个请求是处理过得
                     data = res.data;
-                    _this.props.callback(data.author.loginname);
+                    if(bool){
+                        _this.props.callback(data.author.loginname);
+                    }
                 }
                 _this.setState({ 
                     loading:false,
@@ -49,12 +51,12 @@ class TopicDetail extends React.Component{
             });
     }
     componentDidMount(){
-        this.getDetailContent();
+        this.getDetailContent(this.props.articleId);
     }
     componentWillReceiveProps(nextProps){
-        // let id = nextProps.match.params.id;
-        // this.props.articleId = id;
-        // this.getDetailContent();
+        let id = nextProps.match.params.id;
+        this.props.articleId = id;
+        this.getDetailContent(id,false);
         // if(this.props.match.params.id !== id){
         //     this.getDetailContent();
         // }
@@ -62,7 +64,7 @@ class TopicDetail extends React.Component{
         // console.log(nextProps);
     }
     refreshDat(){
-        this.getDetailContent();
+        this.getDetailContent(this.props.articleId);
     }
     render(){
         let {error,loading,data} = this.state;

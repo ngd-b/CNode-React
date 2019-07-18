@@ -22,17 +22,24 @@ class TopicPage extends React.Component{
         // }
         this.state = {
             authorName:"",
+            articleId:""
         };
 
         this.getDetailAuthor = this.getDetailAuthor.bind(this);
         // 回调 需要绑定this 
         this.getArticleAuthor = this.getArticleAuthor.bind(this);
+        this.getArticleId = this.getArticleId.bind(this);
     }
     // 子组件回调函数
     getArticleAuthor(name){
         // 更新当前查看详情文章的用户
         this.setState({
             authorName:name
+        });
+    }
+    getArticleId(id){
+        this.setState({
+            articleId:id
         });
     }
     componentWillUpdate(prevProps){
@@ -51,11 +58,11 @@ class TopicPage extends React.Component{
         return (<Row type="flex" className="main" justify="center">
                         <Col span={14} className="content">
                             <Route exact path="/" render={routeProps=>(<TopicList callback = {this.getArticleAuthor} {...routeProps} />)} />
-                            <Route exact path="/topic/:id" render={routeProps=>(<TopicDetail callback = {this.getArticleAuthor} {...routeProps} />)} onEnter={(nextState,replace)=>this.getDetailAuthor(nextState,replace)}/>
+                            <Route exact path="/topic/:id" render={routeProps=>(<TopicDetail articleId={this.state.articleId} callback = {this.getArticleAuthor} {...routeProps} />)} onEnter={(nextState,replace)=>this.getDetailAuthor(nextState,replace)}/>
                         </Col>
                         <Col offset={1} span={5} className="sider">
                             <Affix offsetTop={84}>
-                                <SiderPage authorName = {this.state.authorName} />
+                                <SiderPage authorName = {this.state.authorName} callback={this.getArticleId} />
                             </Affix>
                         </Col>
                     </Row>);

@@ -50,7 +50,7 @@ class SiderPage extends React.Component{
     // 处理作者最近文章点击事件
     handleClickOfRecentTopic(id){
         // console.log(id);
-
+        this.props.callback(id);
     }
     render(){
         const {isArticleDetail,loading,author} = this.state;
