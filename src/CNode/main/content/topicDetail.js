@@ -1,5 +1,5 @@
 import React from "react";
-import {Row,Col,Spin,Result,Button,Tag} from "antd";
+import {Row,Col,Spin,Result,Button,Tag,List,Avatar,Icon} from "antd";
 import {Link,withRouter} from "react-router-dom";
 import ReactMarkdown  from "react-markdown";
 import {AuthorContext} from "@Context/authorContext";
@@ -81,6 +81,8 @@ class TopicDetail extends React.Component{
         }else if(loading){
             return <Spin />;
         }else{
+            let replies = data.replies,
+                len = replies.length;
             return(<Row className="detail">
                 <Col className="header" span={24}>
                     <ArticleTag tab={data.tab} good={data.good} top={data.top} />
@@ -96,7 +98,25 @@ class TopicDetail extends React.Component{
                     <ReactMarkdown className="topic markdown-text" source={data.content} />
                 </Col>
                 <Col className="replies" span={24}>
-
+                    <p className="header">{len}回复</p>
+                    <List 
+                        className="replay_content"
+                        itemLayout="horizontal"
+                        dataSource={replies}
+                        renderItem={(item,index)=>(
+                            <List.Item key={item.id}>
+                                <List.Item.Meta 
+                                    avatar={<Avatar src={item.author.avatar_url} />}
+                                    title={<div>
+                                            <Link to={{pathname:"/user/"+item.author.loginname}}>{item.author.loginname}</Link>
+                                            <a className="replay_time">{index+1}楼<span>{getTime(item.create_at)}</span></a>
+                                            <a className="user_action"><Icon type="like" /><span>{}</span></a>
+                                        </div>}
+                                    description={<ReactMarkdown className="replay markdown-text" source={item.content} />}
+                                />
+                            </List.Item>
+                        )}
+                    />
                 </Col>
             </Row>);
         } 

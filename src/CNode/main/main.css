@@ -28,7 +28,7 @@ main .topic-tab li a:focus{
 .main{
     margin-top: 20px;
 }
-.main .content{
+.main .content .article{
     background: #fff;
 }
 .main .article .ant-list-items > .item{
@@ -52,6 +52,9 @@ main .topic-tab li a:focus{
 }
 
 /**文章详情**/
+.main .detail>div{
+    background: #fff;
+}
 .main .detail .header{
     padding:10px;
 }
@@ -93,6 +96,9 @@ main .topic-tab li a:focus{
     white-space: pre-wrap;
     word-wrap: break-wrap;
     margin:1em 0;
+}
+.main .detail .markdown-text p img{
+    max-width: 100%;
 }
 .main .detail .markdown-text ul{
     padding:0;
@@ -136,4 +142,25 @@ main .topic-tab li a:focus{
     padding:0 0 0 15px;
     margin: 0 0 20px;
     border-left:5px solid #eee;
+}
+/**文章回复样式设置**/
+.main .detail .replies{
+    margin:20px 0px;
+}
+.main .detail .replies .header{
+    background: #f6f6f6;
+    padding-left: 15px;
+}
+.main .detail .replies .replay_content .ant-list-item{
+    padding: 10px;
+}
+.main .detail .replies .replay_content .replay_time{
+    margin-left: 5px;
+}
+.main .detail .replies .replay_content .replay_time span::before{
+    content: "●";
+}
+.main .detail .replies .replay_content .user_action{
+    float:right;
+    font-size: 18px;
 }

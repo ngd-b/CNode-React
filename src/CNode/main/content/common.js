@@ -25,11 +25,29 @@ function getTime(time){
     let diffTime = new Date().getTime() - new Date(time).getTime();
     let replay_msg = "";
     if(diffTime/(3600*1000*24) > 1){
-        replay_msg = Math.floor(diffTime/(3600*1000*24))+"天前";
+        // 大概的计算，评论回复时间
+        let day = Math.floor(diffTime/(3600*1000*24));
+        if(day/(30*12)>1){
+            let index = getYear(day,index);
+            replay_msg = index+"年前";
+        }else if(day>30){
+            let index = day%30+1;
+            replay_msg = index+"个月前";
+        }else{
+            replay_msg = day+"天前";
+        }
     }else if(diffTime/(3600*1000) > 1){
         replay_msg = Math.floor(diffTime/(3600*1000))+"小时前";
     }else{
         replay_msg = Math.floor(diffTime/(60*1000))+"分钟前";
+    }
+    function getYear(day){
+        let index = 1;
+        day = day - 30*12;
+        if(day/(30*12)>1){
+            getYear(day);
+        }
+        return index;
     }
     return replay_msg;
 }
