@@ -1,5 +1,7 @@
 main{
     margin-top: 65px;
+    margin-bottom: 20px;
+    min-height: calc(100% - 113px);
 }
 main .topic-tab{
     display: flex;
@@ -46,6 +48,9 @@ main .topic-tab li a:focus{
     text-align: center;
 }
 /** 分页默认样式更改 **/
+.main .article .ant-list-pagination{
+    padding:10px;
+}
 .main .article .ant-pagination{
     text-align: left;
     margin: 10px;

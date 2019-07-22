@@ -1,5 +1,5 @@
 import React from "react";
-import {Spin,Result,Button,List,Avatar} from "antd";
+import {Spin,Result,Button,List,Avatar,Skeleton} from "antd";
 import {Link,withRouter} from "react-router-dom";
 
 import requestAPI from "@api/CNode";
@@ -19,8 +19,9 @@ class ContentItem extends React.Component{
             params:{
                 page:1,
                 tab:props.tab||"",
-                limit:20
+                limit:100
             },
+            pageSize:20,
         };
     }
     componentWillReceiveProps(nextProps){
@@ -79,7 +80,7 @@ class ContentItem extends React.Component{
                     }     
                 />)
         }else if(loading){
-            return <Spin />;
+            return <Skeleton active paragraph={{rows:15,width:100}} />;
         }else{
             return (<List 
                     className="article"
@@ -94,7 +95,7 @@ class ContentItem extends React.Component{
                                 },
                             });
                         },
-                        pageSize:limit,
+                        pageSize:this.state.pageSize,
                         current:page,
                     }}
                     dataSource = {data}

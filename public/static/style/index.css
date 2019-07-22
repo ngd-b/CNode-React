@@ -12,6 +12,7 @@ ul{
 }
 
 body,
+#app,
 .ant-layout{
     background: #e1e1e1;
 }
