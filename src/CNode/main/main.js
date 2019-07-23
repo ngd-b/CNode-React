@@ -7,7 +7,7 @@ import TopicList from "./content/topicList";
 import TopicDetail from "./content/topicDetail";
 import SiderPage from "./siderPage/sider";
 
-import "./main.css";
+import "./main.less";
 /**
  * 文章主体内容的组装
  */

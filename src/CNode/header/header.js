@@ -4,8 +4,7 @@ import {Row,Col,Input,Icon} from "antd";
 
 import {withRouter} from "react-router-dom";
 
-import "@css/index.css";
-import "./header.css";
+import "./header.less";
 // head
 class AppHead extends React.Component{
     constructor(props){

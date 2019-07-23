@@ -1,0 +1,176 @@
+main{
+    margin-top: 65px;
+    margin-bottom: 20px;
+    min-height: calc(100% - 113px);
+    .topic-tab{
+        display: flex;
+        height: 44px;
+        padding-left: 15px;
+        align-items: center;
+        background: #f6f6f6;
+        li{
+            color:#80bd01;
+            border-radius: 3px;
+            padding:3px 5px;
+            margin:0 10px;
+            &.current-tab{
+                color:#fff;
+                background: #80bd01;
+                border-radius: 3px;
+                padding:3px 5px;
+            }
+            a{
+                &:hover,&:focus{
+                    color:#005580;
+                }
+            }
+        }
+    }
+}
+/** 列表默认样式更改 **/
+.main{
+    margin-top: 20px;
+    .content {
+        .article{
+            background: #fff;
+        }
+    }
+    .article {
+        .ant-list-items {
+            .item{
+                padding:10px;
+                div{
+                    &:first-child{
+                        flex: 0;
+                    }
+                    &:last-child{
+                        flex: 1;
+                        text-align: right;
+                    }
+                }
+                .count{
+                    width: 80px;
+                    text-align: center;
+                }
+            }
+        }
+        .ant-list-pagination{
+            padding:10px;
+        }
+        .ant-pagination{
+            text-align: left;
+            margin: 10px;
+        }
+    }
+    .detail {
+        div{
+            background: #fff;
+        }
+        .header{
+            padding:10px;
+            h3{
+                font-weight: 700;
+                font-size: 22px;
+                display: inline-block;
+            }
+            ul{
+                display: flex;
+                color:#838383;
+                li{
+                    margin-left: 3px;
+                    &::before{
+                        content: "●";
+                    }
+                }
+            }
+        }
+        .topic{
+            padding:10px;
+        }
+        /**一下针对文章样式设置**/
+        .markdown-text{
+            margin: 0 10px;
+            h1,h2,h3,h4,h5,h6{
+                border-bottom: 1px solid #eee;
+                font-weight: 700px;
+            }
+            p{
+                font-size: 15px;
+                line-height: 1.7em;
+                overflow: auto;
+                white-space: pre-wrap;
+                word-wrap: break-wrap;
+                margin:1em 0;
+                img{
+                    max-width: 100%;
+                }
+            }
+            ul{
+                padding:0;
+                margin: 0 0 10px 25px;
+                li{
+                    line-height: 2em;
+                    font-size: 14px;
+                    list-style-type: disc;
+                }
+            }
+            img{
+                cursor: pointer;
+                height: auto;
+                max-width: 100%;
+                border: 0;
+                vertical-align: middle;
+            }
+            a{
+                color:#08c;
+                &:hover{
+                    color:#005580;
+                    text-decoration: underline;
+                }
+            }
+            pre{
+                font-size: 14px;
+                border-radius: 0;
+                padding:0 15px;
+                border: none;
+                margin: 20px -10px;
+                tab-size: 4;
+                background: #f7f7f7;
+                border-width: 1px 0;
+                line-height: 22px;
+                color: #333;
+                word-break:break-all;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+            blockquote{
+                padding:0 0 0 15px;
+                margin: 0 0 20px;
+                border-left:5px solid #eee;
+            }
+        }
+        /**文章回复样式设置**/
+        .replies{
+            margin:20px 0px;
+            .header{
+                background: #f6f6f6;
+                padding-left: 15px;
+            }
+            .replay_content {
+                .ant-list-item{
+                    padding: 10px;
+                }
+                .replay_time{
+                    margin-left: 5px;
+                    span::before{
+                        content: "●";
+                    }
+                }
+                .user_action{
+                    float:right;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

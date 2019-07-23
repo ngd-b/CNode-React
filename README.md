@@ -63,3 +63,10 @@ the address of the article to solve this problem [https://blog.csdn.net/heroboyl
 ## Day 9 
 
 &emsp;&emsp; In the end . I still returned to the origin . I didn't solve the problem using `context` .
+
+
+## Day 10 
+
+- [x] `less`
+- [x] webpack plugin `extract-text-webpack-plugin` separate css file.
+

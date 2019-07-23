@@ -5,7 +5,7 @@ import {AuthorContext} from "@Context/authorContext";
 
 import requestAPI from "@api/CNode";
 
-import "./sider.css";
+import "./sider.less";
 
 class SiderPage extends React.Component{
     constructor(props){

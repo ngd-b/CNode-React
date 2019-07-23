@@ -1,0 +1,41 @@
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+.header{
+    .brand{
+        display: block;
+        height: 44px;
+        max-width: 150px;
+        line-height: 44px;
+        img{
+            max-width: 100%;
+            vertical-align: initial;
+        }
+    }
+    .list-unstyled{
+        li{
+            float: left;
+            line-height: 20px;
+            a{
+                float:none;
+                color:#ccc;
+                text-decoration: none;
+                padding:10px 15px;
+                &:hover{
+                    color:#fff;
+                }
+            }
+        }
+    }
+    .searchInput{
+        i{
+            background: inherit !important;
+        }
+        input:focus{
+            background: #fff;
+            border:none;
+        }
+    }
+}

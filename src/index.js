@@ -7,8 +7,7 @@ import ReactDOM from "react-dom";
 import {Layout} from "antd";
 import {BrowserRouter as Router} from "react-router-dom";
 
-import "@css/index.css";
-import "@CNode/header/header.css";
+import "@css/index.less";
 
 const {Header,Content,Footer} = Layout; 
 

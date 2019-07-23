@@ -3,14 +3,19 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const proxy = require("http-proxy-middleware");
 
+const extractCSS = new ExtractTextPlugin("styles/[name]-other.css");
+const extractLESS = new ExtractTextPlugin("styles/[name].css");
 
 module.exports = {
     mode:"development",
-    entry:"./src/index.js",
+    entry:{
+        main:"./src/index.js"
+    },
     output:{
-        filename:"main.js",
+        filename:"[name].bundle.js",
         path:path.resolve(__dirname,"dist")
     },
     devtool:"inline-source-map",
@@ -33,7 +38,28 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                use: extractCSS.extract({
+                    fallback:"style-loader",
+                    use:['css-loader']
+                })
+            },
+            {
+                test: /\.less$/,
+                use: extractLESS.extract({
+                    fallback:"style-loader",
+                    use:[
+                        {
+                            loader:'css-loader'
+                        },
+                        {
+                            loader:'less-loader',
+                            options:{
+                                strictMath:true,
+                                noIeCompat:true
+                            }
+                        }
+                    ]
+                })
             }
         ]
     },
@@ -59,6 +85,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:path.join(__dirname+"/public/index.html")
         }),
+        extractCSS,
+        extractLESS
     ],
     optimization:{
         minimizer:[new UglifyJsPlugin()]
